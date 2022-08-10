@@ -1,12 +1,12 @@
 const startGame = document.querySelector('.start');
-const resetGame = document.querySelector('.reset');
 const hitButton = document.querySelector('.hit');
 const stayButton = document.querySelector('.stay');
 
 
+
 let dealerSum = 0;
 let userSum = 0;
-let flippedCard = "";
+let flippedCard;
 let hitAllowed = true;
 
 const suits = ['hearts','clubs','diamonds','spades']
@@ -19,8 +19,8 @@ for(i = 0; i < 4; i ++) {
     }
 }
 //deck of cards created.
-// variable that selects random card from deck. No need for a shuffle as the card drawn will always be random
-
+//variable that selects random card from deck. No need for a shuffle as the card drawn will always be random
+//may need to add shuffle
 let randomCard = deck[Math.floor(Math.random()*deck.length)]
 
 startGame.addEventListener('click', start)
@@ -30,9 +30,19 @@ stayButton.addEventListener('click', stay)
 function start() {
     flippedCard = randomCard;
     dealerSum += valueOfCard(randomCard);
+    
+    
+   while (dealerSum < 17) {
+        let currentCard  = randomCard;
+        dealerSum += valueOfCard(currentCard);
+        document.getElementById('dealer').append(randomCard); 
+    } 
+    for (i = 0; i < 2; i++) {
+       let currentCard = randomCard;
 
+    }
 
-
+    
 
 }
 
@@ -48,10 +58,6 @@ function stay() {
 }
 
 function ace() {
-
-}
-
-function reset() {
 
 }
 
