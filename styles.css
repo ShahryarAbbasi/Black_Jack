@@ -1,10 +1,12 @@
 h1 {
-    color: black;
+    color: white;
 }
 body {
     display: flex;
     justify-content: center;
     text-align: center;
+    background-color: rgb(32, 31, 31);
+    color: white;
 }
 
 .container {
