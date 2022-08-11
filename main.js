@@ -105,8 +105,12 @@ function stay() {
     document.getElementById('dealersum').innerText = "Sum: " + dealerSum;
 }
 
-function ace() {
-
+function ace(card) {
+    let indexOfCard = card.split(" of ");
+    let value = indexOfCard[0];
+    if (value == "Ace" && dealerSum > 21) {
+        valueOfCard(card) == 1;
+    }
 }
 
 function valueOfCard(evt) {
