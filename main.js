@@ -6,7 +6,6 @@ const stayButton = document.querySelector('.stay');
 
 let dealerSum = 0;
 let userSum = 0;
-let flippedCard;
 let hitAllowed = true;
 
 const suits = ['hearts','clubs','diamonds','spades']
@@ -52,12 +51,12 @@ function start() {
    for(i = 0; i < 2; i++) {
         let currentCard  = deck.pop();
         dealerSum += valueOfCard(currentCard);
-        document.getElementById('dealer').append(currentCard); 
+        document.getElementById('dealer').append(" " + currentCard); 
     } 
     for (i = 0; i < 2; i++) {
        let currentCard = deck.pop();
        userSum += valueOfCard(currentCard);
-        document.getElementById('user').append(currentCard);
+        document.getElementById('user').append(" " + currentCard);
     }
     
 
@@ -80,26 +79,26 @@ function stay() {
     while (dealerSum < 17) {
         let currentCard  = deck.pop();
         dealerSum += valueOfCard(currentCard);
-        document.getElementById('dealer').append(currentCard)
+        document.getElementById('dealer').append(" " + currentCard)
     } 
 
     hitAllowed = false;
     
     let message = "";
     if (userSum > 21) {
-        message = "You Lose!";
+        message = "You Lost!";
     }
     else if (dealerSum > 21) {
-        message = "You win!";
+        message = "You won!";
     }
     else if (userSum == dealerSum) {
         message = "Tie!";
     }
     else if (userSum > dealerSum) {
-        message = "You Win!";
+        message = "You Won!";
     }
     else if (userSum < dealerSum) {
-        message = "You Lose!";
+        message = "You Lost!";
     }
     document.getElementById('message').innerText = message;
     document.getElementById('usersum').innerText = "Sum: " + userSum;

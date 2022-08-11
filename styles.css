@@ -13,3 +13,6 @@ body {
 color-scheme: dark;
 }
 
+.button-wrapper {
+    padding: 20px;
+}
