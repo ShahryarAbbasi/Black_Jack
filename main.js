@@ -77,12 +77,12 @@ function hitCard() {
 
 function stay() {
 
-    if (dealerSum < 17) {
+    while (dealerSum < 17) {
         let currentCard  = deck.pop();
         dealerSum += valueOfCard(currentCard);
         document.getElementById('dealer').append(currentCard)
     } 
-    
+
     hitAllowed = false;
     
     let message = "";
@@ -106,29 +106,20 @@ function stay() {
     document.getElementById('dealersum').innerText = "Sum: " + dealerSum;
 }
 
-// function ace() {
-// if(dealerSum > 21){
-//     valueOfCard()
-// }
-// }
+function ace() {
+
+}
 
 function valueOfCard(evt) {
     let indexOfCard = evt.split(" of ");
     let value = indexOfCard[0];
     if (value == "Ace") {
-        if (dealerSum < 21) 
-        {return 11;} else {
-            return 1;
-        }
-        if (userSum < 21) {
             return 11;
-        } else {
-            return 1;
+        } 
+        else if (value == "King" || value == "Jack" || value == "Queen") {
+            return 10;
         }
-    } else if (value == "King" || value == "Jack" || value == "Queen") {
-        return 10;
-    }
+        return parseInt(value);
+    } 
     
-    return parseInt(value);
-}
 
