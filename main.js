@@ -48,7 +48,7 @@ stayButton.addEventListener('click', stay)
 
 function start() {
     
-   for(i = 0; i < 2; i++) {
+   for(i = 0; i < 2 ; i++) {
         let currentCard  = deck.pop();
         dealerSum += valueOfCard(currentCard);
         document.getElementById('dealer').append(" " + currentCard); 
@@ -76,7 +76,7 @@ function hitCard() {
 
 function stay() {
 
-    while (dealerSum < 17) {
+    while (dealerSum <= 17) {
         let currentCard  = deck.pop();
         dealerSum += valueOfCard(currentCard);
         document.getElementById('dealer').append(" " + currentCard)
