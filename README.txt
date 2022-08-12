@@ -1,6 +1,5 @@
-Project 1 by Shahryar Abbasi
+# Black Jack By Shahryar Abbasi
 
-Game: Black Jack
 
 Psuedocode: HTML
 First screen will be a mostly blank screen with a title of the game and a start button that when clicked takes you to a screen that has a couple images that will have the two players (user and computer) that will compete in a game of Black Jack.
