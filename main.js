@@ -2,8 +2,6 @@ const startGame = document.querySelector('.start');
 const hitButton = document.querySelector('.hit');
 const stayButton = document.querySelector('.stay');
 
-
-
 let dealerSum = 0;
 let userSum = 0;
 let hitAllowed = true;
@@ -11,7 +9,6 @@ let hitAllowed = true;
 const suits = ['Hearts','Clubs','Diamonds','Spades']
 const values= ['Ace','2','3','4','5','6','7','8','9','10','King','Queen','Jack']
 const deck = [];
-
 
 for(i = 0; i < 4; i ++) {
     for(j = 0; j < 13; j++){
@@ -21,14 +18,11 @@ for(i = 0; i < 4; i ++) {
 function shuffle(array) {
     let currentIndex = array.length,  randomIndex;
   
-    // While there remain elements to shuffle.
     while (currentIndex != 0) {
   
-      // Pick a remaining element.
       randomIndex = Math.floor(Math.random() * currentIndex);
       currentIndex--;
   
-      // And swap it with the current element.
       [array[currentIndex], array[randomIndex]] = [
         array[randomIndex], array[currentIndex]];
     }
@@ -38,9 +32,8 @@ function shuffle(array) {
 
 shuffle(deck);
 
-//deck of cards created.
-//variable that selects random card from deck. No need for a shuffle as the card drawn will always be random
-//may need to add shuffle
+//deck of cards created
+//Shuffle created, need to use pop method to draw one card (index of array)
 
 startGame.addEventListener('click', start, {once: true})
 hitButton.addEventListener('click', hitCard)
@@ -76,7 +69,6 @@ function hitCard() {
 
 function stay() {
     hitAllowed = false;
-    let message = "";
 
     while (dealerSum <= 17) {
         let currentCard  = deck.pop();
@@ -85,29 +77,28 @@ function stay() {
     } 
 
     if (userSum > 21) {
-        message = "You Lost!";
+        document.getElementById('message').innerText = "Dealer Won!";
     }
     else if (dealerSum > 21) {
-        message = "You won!";
+        document.getElementById('message').innerText = "You won!";
     }
-    else if (userSum == dealerSum) {
-        message = "Tie!";
+    else if (userSum === dealerSum) {
+        document.getElementById('message').innerText = "Tie!";
     }
     else if (userSum > dealerSum) {
-        message = "You Won!";
+        document.getElementById('message').innerText = "You Won!";
     }
     else if (userSum < dealerSum) {
-        message = "You Lost!";
+        document.getElementById('message').innerText = "Dealer Won!";
     }
-    document.getElementById('message').innerText = message;
     document.getElementById('usersum').innerText = "Sum: " + userSum;
     document.getElementById('dealersum').innerText = "Sum: " + dealerSum;
 }
 
 
 function valueOfCard(evt, dealerSum, userSum) {
-    let indexOfCard = evt.split(" | ");
-    let value = indexOfCard[0];
+    let firstIndex = evt.split(" | ");
+    let value = firstIndex[0];
     if (value == "Ace" && dealerSum > 21 || userSum > 21) {
             return 1;
         } else if (value == "Ace") {

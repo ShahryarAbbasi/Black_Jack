@@ -12,10 +12,10 @@ Kept it very simple with the technologies. I used basic HTML and CSS to create a
 Javascript was used to create game logic and making the buttons on the webpage functional.
 
 ### Challenging Code Parts
-Difficult part for me was figuring out how to attach values to a string of an array. After hours of searching parseInt came up and it was a lifesaver. Still need to do is find a function how to turn the Ace value to 1 or 11 depending on the sum of the hand.
+Overall I spent a good amount of time with DOM and how to use it. Difficult part for me was figuring out how to attach values to a string of an array. After hours of searching parseInt came up and it was a lifesaver. Still need to do is find a function how to turn the Ace value to 1 or 11 depending on the sum of the hand.
 
 ### link to Game
 [Here is the link](https://shahryarabbasi.github.io/Black_Jack/)
 
 ### Next Steps
-I would like to make my game more realistic with the card images and better logic to change Ace count depending on score of the game. Have one dealer card flipped to start the game as well. I believe I spent a lot of time on the logic of the game and was in funky spot for a major time of the project before finding the right approach. This project needs a lot more work and I will be putting the time in for it.
+I would like to make my game more realistic with the card images and better logic to change Ace count depending on score of the game. Have one dealer card flipped to start the game, and lastly would like to add about a second or two delay after user hits stay to reveal dealer cards and winning message. I believe I spent a lot of time on the logic of the game and was in funky spot for a major time of the project before finding the right approach. This project needs a lot more work and I plan to be putting the time in for it.
