@@ -8,14 +8,14 @@ let dealerSum = 0;
 let userSum = 0;
 let hitAllowed = true;
 
-const suits = ['hearts','clubs','diamonds','spades']
+const suits = ['Hearts','Clubs','Diamonds','Spades']
 const values= ['Ace','2','3','4','5','6','7','8','9','10','King','Queen','Jack']
 const deck = [];
 
 
 for(i = 0; i < 4; i ++) {
     for(j = 0; j < 13; j++){
-        deck.push(values[j] + " of " + suits[i])
+        deck.push(values[j] + " | " + suits[i])
     }
 }
 function shuffle(array) {
@@ -51,12 +51,12 @@ function start() {
    for(i = 0; i < 2 ; i++) {
         let currentCard  = deck.pop();
         dealerSum += valueOfCard(currentCard);
-        document.getElementById('dealer').append(" " + currentCard); 
+        document.getElementById('dealer').append("   " + currentCard); 
     } 
     for (i = 0; i < 2; i++) {
        let currentCard = deck.pop();
        userSum += valueOfCard(currentCard);
-        document.getElementById('user').append(" " + currentCard);
+        document.getElementById('user').append("   " + currentCard);
     }
     
 
@@ -66,7 +66,7 @@ function hitCard() {
     if (hitAllowed === true) {
         let newCard = deck.pop();
         userSum += valueOfCard(newCard);
-        document.getElementById('user').append(newCard);
+        document.getElementById('user').append("   " + newCard);
     }
     
     if (userSum > 21) {
@@ -75,16 +75,15 @@ function hitCard() {
 }
 
 function stay() {
+    hitAllowed = false;
+    let message = "";
 
     while (dealerSum <= 17) {
         let currentCard  = deck.pop();
         dealerSum += valueOfCard(currentCard);
-        document.getElementById('dealer').append(" " + currentCard)
+        document.getElementById('dealer').append("   " + currentCard)
     } 
 
-    hitAllowed = false;
-    
-    let message = "";
     if (userSum > 21) {
         message = "You Lost!";
     }
@@ -105,20 +104,15 @@ function stay() {
     document.getElementById('dealersum').innerText = "Sum: " + dealerSum;
 }
 
-function ace(card) {
-    let indexOfCard = card.split(" of ");
-    let value = indexOfCard[0];
-    if (value == "Ace" && dealerSum > 21) {
-        valueOfCard(card) == 1;
-    }
-}
 
-function valueOfCard(evt) {
-    let indexOfCard = evt.split(" of ");
+function valueOfCard(evt, dealerSum, userSum) {
+    let indexOfCard = evt.split(" | ");
     let value = indexOfCard[0];
-    if (value == "Ace") {
+    if (value == "Ace" && dealerSum > 21 || userSum > 21) {
+            return 1;
+        } else if (value == "Ace") {
             return 11;
-        } 
+        }
         else if (value == "King" || value == "Jack" || value == "Queen") {
             return 10;
         }
