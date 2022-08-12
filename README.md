@@ -6,7 +6,7 @@
 The goal is reach 21 or get as close as possible without going over. The game starts by clicking the "Start Game!" button. You and the dealer are both dealt 2 cards. The goal is to reach 21 or get as close as possible without going over. You can press hit if you are unhappy with your total sum and play your luck to not go over 21. Once you hit stay, the dealer will draw as many cards needed to reach a sum of 17 or above. Once your sums are matched up, a message will pop up declaring the winner or if it is a tie.
 
 ### Game Pictures
-![alt text](https://ibb.co/r23Rsdf)
+![image](https://user-images.githubusercontent.com/85513770/184271967-4abcc19c-0eb5-4563-9842-c54691766f6d.png)
 ### Technologies Used
 Kept it very simple with the technologies. I used basic HTML and CSS to create a neat looking game. Things are nicely placed on screen and nothing overlaps eachother. Went with a dark theme to the website so that you may play for hours without hurting your eyes too much.
 Javascript was used to create game logic and making the buttons on the webpage functional.
